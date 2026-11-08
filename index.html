@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InternMe</title>
+  <meta name="description" content="InternMe connects student and junior talent with early-stage founders through 30-second reels, short projects, and one-click SignMeUp.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23141714'/%3E%3Cpath d='M13 9l11 7-11 7z' fill='%23f3f0e8'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="bar">
+      <a class="logo" href="#/">
+        <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="9" fill="#141714"></rect>
+          <path d="M13 9l11 7-11 7z" fill="#f3f0e8"></path>
+        </svg>
+        InternMe
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#/reel" data-viewlink="reel">Post a Reel</a>
+        <a href="#/job" data-viewlink="job">Post a Job/Project</a>
+        <a href="#/pricing" data-viewlink="pricing">Pricing</a>
+        <a href="#/about" data-viewlink="about">About</a>
+        <button type="button" class="btn btn-solid" id="login-toggle">Log in</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div data-view="home">
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <p class="eyebrow">Video reel marketplace</p>
+            <h1>Hire from a reel.<br><em>Ship a short project.</em></h1>
+            <p class="lede">InternMe connects student and junior talent with early-stage founders and makers. Watch a 30-second pitch, filter by zip code, and SignMeUp in one click.</p>
+            <div class="hero-actions">
+              <a class="btn btn-solid" href="#featured-talent">Browse talent</a>
+              <a class="btn btn-ghost" href="#/job">Post a Job/Project</a>
+            </div>
+            <ul class="facts">
+              <li>30-second pitches</li>
+              <li>Zip and area filters</li>
+              <li>Six featured cards a side</li>
+              <li>One-click SignMeUp</li>
+            </ul>
+          </div>
+          <div class="hero-stage" id="hero-preview"></div>
+        </div>
+      </section>
+
+      <section class="section" id="featured-talent">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <h2 class="type-section">Featured Talent</h2>
+              <p>A strict 2×3 cap. Six reels, then the grid stops so the short list stays watchable.</p>
+            </div>
+            <p class="result-line" data-count="talent"></p>
+          </div>
+          <form class="filters" role="search">
+            <label>Zip code
+              <input data-scope="talent" data-field="zip" inputmode="numeric" maxlength="5" placeholder="78701" autocomplete="off">
+            </label>
+            <label>Location / area
+              <input data-scope="talent" data-field="area" list="area-list" placeholder="Austin" autocomplete="off">
+            </label>
+            <label>Work mode
+              <select data-scope="talent" data-field="mode">
+                <option value="all">All</option>
+                <option value="remote">Remote</option>
+                <option value="onsite">On-site</option>
+              </select>
+            </label>
+            <button type="button" class="btn btn-line" data-clear="talent">Clear</button>
+          </form>
+          <div class="card-grid" data-grid="talent"></div>
+        </div>
+      </section>
+
+      <section class="section" id="featured-jobs">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <h2 class="type-section">Featured Opportunities</h2>
+              <p>Short, structured projects. Same 2×3 cap, with zip and area filters for on-site work.</p>
+            </div>
+            <p class="result-line" data-count="jobs"></p>
+          </div>
+          <form class="filters" role="search">
+            <label>Zip code
+              <input data-scope="jobs" data-field="zip" inputmode="numeric" maxlength="5" placeholder="11201" autocomplete="off">
+            </label>
+            <label>Location / area
+              <input data-scope="jobs" data-field="area" list="area-list" placeholder="Brooklyn" autocomplete="off">
+            </label>
+            <label>Work mode
+              <select data-scope="jobs" data-field="mode">
+                <option value="all">All</option>
+                <option value="remote">Remote</option>
+                <option value="onsite">On-site</option>
+              </select>
+            </label>
+            <button type="button" class="btn btn-line" data-clear="jobs">Clear</button>
+          </form>
+          <div class="card-grid" data-grid="jobs"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <h2 class="type-section">How it works</h2>
+              <p>A reel, a real project, and one click between them.</p>
+            </div>
+          </div>
+          <div class="steps">
+            <article class="step">
+              <b>01</b>
+              <h3>Post a reel</h3>
+              <p>Juniors record a 30-second pitch: who they are, where they can work, and what they want to ship.</p>
+            </article>
+            <article class="step">
+              <b>02</b>
+              <h3>List a project</h3>
+              <p>Founders post the work, the length, and the place. On-site roles carry a zip code. Remote roles say so.</p>
+            </article>
+            <article class="step">
+              <b>03</b>
+              <h3>SignMeUp</h3>
+              <p>One click puts a junior on a project. No long form, no extra round trip.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section testimonials" aria-roledescription="carousel" aria-label="Testimonials">
+        <div class="wrap">
+          <h2 class="type-section">In their words</h2>
+          <div class="carousel">
+            <div class="carousel-slide">
+              <blockquote class="carousel-quote type-section"></blockquote>
+              <p class="carousel-by"></p>
+            </div>
+            <div class="carousel-controls">
+              <button type="button" class="icon-btn" data-quote="-1" aria-label="Previous testimonial">
+                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </button>
+              <div class="dots" role="tablist" aria-label="Choose a testimonial"></div>
+              <button type="button" class="icon-btn" data-quote="1" aria-label="Next testimonial">
+                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="wrap">
+        <section class="cta-band">
+          <div>
+            <h2 class="type-section">Put six people on screen.</h2>
+            <p>Post a reel or a short project. The featured grids never grow past six.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-solid" href="#/reel">Post a Reel</a>
+            <a class="btn btn-ghost" href="#/job">Post a Job/Project</a>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div data-view="portal" hidden>
+      <section class="page">
+        <div class="wrap">
+          <div class="page-intro">
+            <h1 class="page-title">Portal</h1>
+            <p>Browse the same curated grids. Filters apply here and on the landing page. Featured stays capped at six.</p>
+          </div>
+          <p class="banner" id="auth-banner"></p>
+          <div class="tabs" role="tablist" aria-label="Portal">
+            <button type="button" role="tab" data-tab="talent" aria-selected="true">Talent</button>
+            <button type="button" role="tab" data-tab="jobs" aria-selected="false">Opportunities <span data-signup-count hidden>0</span></button>
+          </div>
+          <div class="portal-layout">
+            <div>
+              <div data-panel="talent">
+                <form class="filters" role="search">
+                  <label>Zip code
+                    <input data-scope="talent" data-field="zip" inputmode="numeric" maxlength="5" placeholder="78701" autocomplete="off">
+                  </label>
+                  <label>Location / area
+                    <input data-scope="talent" data-field="area" list="area-list" placeholder="Austin" autocomplete="off">
+                  </label>
+                  <label>Work mode
+                    <select data-scope="talent" data-field="mode">
+                      <option value="all">All</option>
+                      <option value="remote">Remote</option>
+                      <option value="onsite">On-site</option>
+                    </select>
+                  </label>
+                  <button type="button" class="btn btn-line" data-clear="talent">Clear</button>
+                </form>
+                <p class="result-line" data-count="talent"></p>
+                <div class="card-grid" data-grid="talent" style="margin-top:14px"></div>
+              </div>
+              <div data-panel="jobs" hidden>
+                <form class="filters" role="search">
+                  <label>Zip code
+                    <input data-scope="jobs" data-field="zip" inputmode="numeric" maxlength="5" placeholder="11201" autocomplete="off">
+                  </label>
+                  <label>Location / area
+                    <input data-scope="jobs" data-field="area" list="area-list" placeholder="Brooklyn" autocomplete="off">
+                  </label>
+                  <label>Work mode
+                    <select data-scope="jobs" data-field="mode">
+                      <option value="all">All</option>
+                      <option value="remote">Remote</option>
+                      <option value="onsite">On-site</option>
+                    </select>
+                  </label>
+                  <button type="button" class="btn btn-line" data-clear="jobs">Clear</button>
+                </form>
+                <p class="result-line" data-count="jobs"></p>
+                <div class="card-grid" data-grid="jobs" style="margin-top:14px"></div>
+              </div>
+            </div>
+            <aside class="panel">
+              <h2>Your sign-ups</h2>
+              <p id="signup-empty">SignMeUp on a project and it lands here.</p>
+              <ul class="signup-list" id="signup-list"></ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div data-view="pricing" hidden>
+      <section class="page">
+        <div class="wrap">
+          <div class="page-intro">
+            <h1 class="page-title">Pricing</h1>
+            <p>The demo is open. Nothing here bills a card or collects a contact.</p>
+          </div>
+          <div class="price-grid">
+            <article class="price-card">
+              <h2 class="type-section">Juniors</h2>
+              <p class="cost">$0</p>
+              <ul>
+                <li>One pitch reel</li>
+                <li>Zip and area search</li>
+                <li>SignMeUp on open projects</li>
+              </ul>
+            </article>
+            <article class="price-card is-featured">
+              <h2 class="type-section">Makers</h2>
+              <p class="cost">$0</p>
+              <ul>
+                <li>List a short project</li>
+                <li>Watch six reels at a time</li>
+                <li>See who signed up</li>
+              </ul>
+            </article>
+            <article class="price-card">
+              <h2 class="type-section">Featured</h2>
+              <p class="cost">Later</p>
+              <ul>
+                <li>Pin a listing inside the six</li>
+                <li>Not active in this demo</li>
+                <li>The cap stays 2×3</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div data-view="about" hidden>
+      <section class="page">
+        <div class="wrap about-layout">
+          <div class="about-copy">
+            <h1 class="page-title">About</h1>
+            <p>InternMe is a small marketplace for people early in their career and people building the first version of something.</p>
+            <p>Reels stay at 30 seconds so founders can actually watch them. Projects stay structured so a junior knows the length, the place, and the work. Zip and area filters keep on-site roles honest. Remote listings say remote, and they do not pretend to have a commute.</p>
+            <p>The featured grids never show more than six cards a side. Curation is the product. If a filter matches more than six, only the first six render.</p>
+          </div>
+          <div>
+            <article class="fact-card"><b>30s</b> Pitch length</article>
+            <article class="fact-card"><b>2×3</b> Cards per side</article>
+            <article class="fact-card"><b>1</b> Click to SignMeUp</article>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div data-view="reel" hidden>
+      <section class="page">
+        <div class="wrap">
+          <div class="page-intro">
+            <h1 class="page-title">Post a Reel</h1>
+            <p>Name, place, and a demo clip. New reels jump to the front of Featured Talent and still respect the six-card cap.</p>
+          </div>
+          <form class="form-card" id="reel-form" novalidate>
+            <div class="form-grid">
+              <label class="field">Name
+                <input name="name" required maxlength="60" placeholder="Ava Morales" autocomplete="name">
+              </label>
+              <label class="field">Role
+                <input name="role" required maxlength="60" placeholder="Product design">
+              </label>
+              <label class="field">City or area
+                <input name="area" required maxlength="60" list="area-list" placeholder="Austin">
+              </label>
+              <label class="field">Zip code
+                <input name="zip" inputmode="numeric" maxlength="5" placeholder="78701" autocomplete="off">
+              </label>
+              <fieldset class="field wide">
+                <legend>Work mode</legend>
+                <div class="choices">
+                  <label><input type="radio" name="mode" value="onsite" checked> On-site</label>
+                  <label><input type="radio" name="mode" value="remote"> Remote</label>
+                </div>
+              </fieldset>
+              <label class="field wide">Skills
+                <input name="skills" maxlength="80" placeholder="Figma, Research, Prototypes">
+              </label>
+              <label class="field wide">Pitch
+                <textarea name="blurb" required maxlength="180" rows="3" placeholder="What you want to ship in a month."></textarea>
+              </label>
+              <label class="field">Demo video
+                <select name="video" id="reel-video"></select>
+              </label>
+              <label class="field">YouTube link, optional
+                <input name="link" placeholder="https://www.youtube.com/watch?v=…">
+              </label>
+            </div>
+            <p class="form-error" id="reel-error" hidden></p>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-solid">Publish reel</button>
+              <a class="btn btn-line" href="#/">Cancel</a>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <div data-view="job" hidden>
+      <section class="page">
+        <div class="wrap">
+          <div class="page-intro">
+            <h1 class="page-title">Post a Job/Project</h1>
+            <p>Keep it concrete: the work, the length, and where it happens. On-site listings need a zip code.</p>
+          </div>
+          <form class="form-card" id="job-form" novalidate>
+            <div class="form-grid">
+              <label class="field">Project title
+                <input name="title" required maxlength="80" placeholder="Onboarding redesign">
+              </label>
+              <label class="field">Studio or maker
+                <input name="maker" required maxlength="60" placeholder="Northwind">
+              </label>
+              <label class="field">City or area
+                <input name="area" required maxlength="60" list="area-list" placeholder="Brooklyn">
+              </label>
+              <label class="field">Zip code
+                <input name="zip" inputmode="numeric" maxlength="5" placeholder="11201" autocomplete="off">
+              </label>
+              <fieldset class="field wide">
+                <legend>Work mode</legend>
+                <div class="choices">
+                  <label><input type="radio" name="mode" value="onsite" checked> On-site</label>
+                  <label><input type="radio" name="mode" value="remote"> Remote</label>
+                </div>
+              </fieldset>
+              <label class="field">Length
+                <input name="duration" required maxlength="40" placeholder="4 weeks">
+              </label>
+              <label class="field">Stipend note, optional
+                <input name="stipend" maxlength="40" placeholder="1,200 stipend">
+              </label>
+              <label class="field wide">What they will ship
+                <textarea name="summary" required maxlength="220" rows="4" placeholder="The work, the deliverable, and the boundary."></textarea>
+              </label>
+            </div>
+            <p class="form-error" id="job-error" hidden></p>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-solid">Publish listing</button>
+              <a class="btn btn-line" href="#/">Cancel</a>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap foot">
+      <p>InternMe · Reels for early teams</p>
+      <nav aria-label="Footer">
+        <a href="#/reel">Post a Reel</a>
+        <a href="#/job">Post a Job/Project</a>
+        <a href="#/pricing">Pricing</a>
+        <a href="#/about">About</a>
+        <a href="#/portal">Portal</a>
+      </nav>
+    </div>
+  </footer>
+
+  <datalist id="area-list">
+    <option value="Austin"></option>
+    <option value="Brooklyn"></option>
+    <option value="San Francisco"></option>
+    <option value="Chicago"></option>
+    <option value="Seattle"></option>
+    <option value="Miami"></option>
+    <option value="Denver"></option>
+    <option value="Remote"></option>
+  </datalist>
+
+  <dialog id="login-dialog" aria-labelledby="login-title">
+    <form class="modal-card" id="login-form">
+      <h2 id="login-title">Log in</h2>
+      <p class="hint">Demo access is already filled in. Continue to enter the portal.</p>
+      <div class="login-fields">
+        <label class="field">Username
+          <input type="text" value="********" readonly aria-label="Username" autocomplete="off">
+        </label>
+        <label class="field">Password
+          <input type="text" value="********" readonly aria-label="Password" autocomplete="off">
+        </label>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-solid" id="login-submit">Log in</button>
+        <button type="button" class="btn btn-line" id="login-cancel">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="video-dialog" class="video-dialog" aria-labelledby="video-title">
+    <div class="modal-card">
+      <div class="modal-top">
+        <div>
+          <h2 id="video-title">Reel</h2>
+          <p class="hint" id="video-role"></p>
+        </div>
+        <button type="button" class="close-x" id="video-close" aria-label="Close video">×</button>
+      </div>
+      <iframe class="video-frame" id="video-frame" title="Demo reel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <p class="modal-note">Sample YouTube clip standing in for a 30-second pitch.</p>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
